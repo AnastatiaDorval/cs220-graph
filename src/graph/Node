@@ -1,0 +1,43 @@
+
+public class Node implements INode{
+  private String name;
+  private Map<INode, Integer> neighbors = new HashMap<>();
+  
+  public Node(String name){
+    this.name = name;
+  }
+  
+  Collection<INode> getNeighbors(){
+    return neighbors.keySet();
+  }
+  
+  void addUndirectedEdgeToNode(INode n, int w){
+    neighbors.put(n, w);
+    n.neighbors.put(this, w);
+  }
+  
+  void addDirectedEdgeToNode(INode neighbor, int weight){
+    neighbors.put(n, w);
+  }
+  
+  void removeDirectedEdgeToNode(INode neighbor){
+    neighbors.remove(neighbor);
+    n.neighbors.remove(this);
+  }
+    
+  void removeUndirectedEdgeToNode(INode neightbor){
+    neighbors.remove(neightbor);
+  }
+    
+  boolean hasEdge(INode node){
+    return neighbors.containsKey(node);
+  }
+    
+  int getWeight(INode node){
+    if (this.hasEdge)
+      return neighbors.get(node);
+    
+    return 0;
+  }
+  
+}
