@@ -1,5 +1,5 @@
 
-public class Node implements INode{
+public class Node Implements INode{
   private String name;
   private Map<INode, Integer> neighbors = new HashMap<>();
   
