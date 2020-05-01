@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Graph implements IGraph{
+  private Map<String, INode> nodes = new HashMap<>(); //Class attribute
+
+  INode getOrCreateNode(String name){ //if node already exsists it retuurns it, if node doesn't it creates a new one
+    if(nodes.containsKey(name)){
+      return nodes.get(name);
+    }
+    
+    INode node = new Node(name);
+    nodes.put(name, node);
+    return node;
+  }
+  
+  boolean containsNode(String name){
+    return nodes.containsKey(name);
+  }
+  
+  Collection<INode> getAllNodes(){
+    return nodes.values();
+  }
+  
+  void breadthFirstSearch(String startNode, NodeVisitor v){
+  
+  }
+  
+  void depthFirstSearch(String startNode, NodeVisitor v){
+  
+  }
+  
+  Map<INode,Integer> dijkstra(String sourceNode){
+  
+  }
+  
+  IGraph primJarnik(){
+  
+  }
+  
+}
