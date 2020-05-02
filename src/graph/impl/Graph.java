@@ -69,8 +69,29 @@ public class Graph implements IGraph
      */
     public void breadthFirstSearch(String startNodeName, NodeVisitor v)
     {
-        // TODO: Implement this method
-        throw new UnsupportedOperationException("Implement this method");
+        Set visited = new HashSet<Node>();
+        Queue toVisit = new ArrayDeque<Node>();
+        
+        toVisit.addFirst(neighbors.get(startNodeName));
+        
+        while (!toVisit.isEmpty()){
+            x = toVisit.remove();
+            
+            if (visited.contains(x)){
+                continue;
+            }
+            
+            this.visit(x);
+            visited.add(x);
+            
+            ArrayList n = new ArrayList<INode>();
+            n.addAll(this.getAllNodes);
+            for(int i = 0; i < n.size()){
+                if(!visited.contains(n[i])){
+                    toVisit.add(n[i]);
+                }
+            }
+        }
     }
 
     /**
