@@ -22,7 +22,8 @@ import graph.INode;
  */
 public class Node implements INode
 {
-    
+    private String name;
+    private Map<INode, Integer> neighbors = new HashMap<>();
     /**
      * Create a new node with the given name. The newly created node should
      * have no edges.
@@ -30,7 +31,7 @@ public class Node implements INode
      * @param name
      */
     public Node(String name) {
-        throw new UnsupportedOperationException("Implement this method");
+        this.name = name;
     }
     
     
@@ -41,7 +42,7 @@ public class Node implements INode
      * @return
      */
     public String getName() {
-        throw new UnsupportedOperationException("Implement this method");
+        return this.name;
     }
 
     /**
@@ -50,7 +51,7 @@ public class Node implements INode
      * @return
      */
     public Collection<INode> getNeighbors() {
-        throw new UnsupportedOperationException("Implement this method");
+        return neighbors.keySet();
     }
     
     /**
@@ -60,7 +61,7 @@ public class Node implements INode
      * @param weight
      */
     public void addDirectedEdgeToNode(INode n, int weight) {
-        throw new UnsupportedOperationException("Implement this method");
+        neighbors.put(n, w);
     }
     
     /**
@@ -71,7 +72,8 @@ public class Node implements INode
      * @param weight
      */
     public void addUndirectedEdgeToNode(INode n, int weight) {
-        throw new UnsupportedOperationException("Implement this method");
+        neighbors.put(n, w);
+        n.neighbors.put(this, w);
     }
 
     /**
@@ -84,7 +86,7 @@ public class Node implements INode
      * @throws IllegalStateException
      */
     public void removeDirectedEdgeToNode(INode n) {
-        throw new UnsupportedOperationException("Implement this method");
+        neighbors.put(n, w);
     }
     
     /**
@@ -98,7 +100,8 @@ public class Node implements INode
      * @throws IllegalStateException
      */
     public void removeUndirectedEdgeToNode(INode n) {
-        throw new UnsupportedOperationException("Implement this method");
+        neighbors.remove(neighbor);
+        n.neighbors.remove(this);
     }
     
     /**
