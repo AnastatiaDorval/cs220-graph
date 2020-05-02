@@ -112,7 +112,7 @@ public class Node implements INode
      * @return
      */
     public boolean hasEdge(INode other) {
-        throw new UnsupportedOperationException("Implement this method");
+        return neighbors.containsKey(other);
     }
     
     /**
@@ -125,6 +125,6 @@ public class Node implements INode
      * @throws IllegalStateException
      */
     public int getWeight(INode n) {
-        throw new UnsupportedOperationException("Implement this method");
+        return neighbors.get(n);
     }
 }
