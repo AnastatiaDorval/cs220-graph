@@ -16,7 +16,7 @@ import graph.NodeVisitor;
  */
 public class Graph implements IGraph
 {
-    
+    private Map<String, INode> nodes = new HashMap<>();
     /**
      * Return the {@link Node} with the given name.
      * 
@@ -29,7 +29,13 @@ public class Graph implements IGraph
      * @return
      */
     public INode getOrCreateNode(String name) {
-        throw new UnsupportedOperationException("Implement this method");
+        if(nodes.containsKey(name)){
+            return nodes.get(name);
+        }
+    
+        INode node = new Node(name);
+        nodes.put(name, node);
+        return node;
     }
 
     /**
@@ -40,7 +46,7 @@ public class Graph implements IGraph
      * @return
      */
     public boolean containsNode(String name) {
-        throw new UnsupportedOperationException("Implement this method");
+        return nodes.containsKey(name);
     }
 
     /**
@@ -49,7 +55,7 @@ public class Graph implements IGraph
      * @return
      */
     public Collection<INode> getAllNodes() {
-        throw new UnsupportedOperationException("Implement this method");
+        return nodes.values();
     }
     
     /**
