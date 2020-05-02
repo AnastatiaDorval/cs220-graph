@@ -73,7 +73,7 @@ public class Node implements INode
      */
     public void addUndirectedEdgeToNode(INode n, int weight) {
         neighbors.put(n, w);
-        n.neighbors.put(this, w);
+        n.addDirectedEdgeToNode(this, weight);
     }
 
     /**
@@ -101,7 +101,7 @@ public class Node implements INode
      */
     public void removeUndirectedEdgeToNode(INode n) {
         neighbors.remove(neighbor);
-        n.neighbors.remove(this);
+        n.removeDirectedEdgeToNode(this);
     }
     
     /**
