@@ -139,5 +139,28 @@ graph dfs1 {
         assertEquals("A", order.get(0));
         assertEquals("E", order.get(2));
     }
+    
+    @Test
+    public void testDFS2(){
+    	IGraph g = new Graph();
+        INode a = g.getOrCreateNode("Alaska");
+        INode b = g.getOrCreateNode("Bianca");
+        INode c = g.getOrCreateNode("Chad");
+        INode d = g.getOrCreateNode("Detox");
+        INode e = g.getOrCreateNode("Eureka");
+        a.addUndirectedEdgeToNode(c, 1);
+        a.addUndirectedEdgeToNode(d, 1);
+        b.addUndirectedEdgeToNode(a, 1);
+        b.addUndirectedEdgeToNode(c, 1);
+        e.addUndirectedEdgeToNode(b, 1);
+        
+        OrderedNodeVisitor v = new OrderedNodeVisitor();
+        g.depthFirstSearch("Alaska", v);
+        
+        List<String> order = v.getOrder();
+        System.out.print(order);
+        assertEquals("Alaska", order.get(0));
+        assertEquals("Eureka", order.get(4));
+    }
 
 }
